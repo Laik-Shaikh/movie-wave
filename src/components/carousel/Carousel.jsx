@@ -13,7 +13,7 @@ import "./carousel.scss";
 import CircularRating from "../circularRating/CircularRating";
 import Genre from "../genres/Genre";
 
-const Carousel = ({ data, loading, endPoint }) => {
+const Carousel = ({ data, loading, endPoint, title }) => {
   const navigate = useNavigate();
   const { url } = useSelector((state) => state.home);
   const carouselContainer = useRef();
@@ -46,6 +46,9 @@ const Carousel = ({ data, loading, endPoint }) => {
   return (
     <>
       <div className="carousel-section">
+      {title && (
+                <div className="carousal-title">{title}</div>
+              )}
         <ContentWrapper>
           <BsFillArrowLeftCircleFill
             className="carouselLeftNav arrow"
