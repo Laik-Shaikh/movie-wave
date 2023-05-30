@@ -1,5 +1,5 @@
 # Check out the live website:
-<h3>Click Here(https://movie-wave.onrender.com/)</h3>
+<h3>[Click Here](https://movie-wave.onrender.com/)</h3>
 
 
 
