@@ -9,6 +9,7 @@ import Image from "../../../components/lazyImage/Image";
 import ContentWrapper from "../../../components/container/ContentWrapper";
 import Genre from "../../../components/genres/Genre";
 import { PlayIcon } from "../PlayIcon";
+import NoPoster from '../../../assets/no-poster.png';
 
 import "./detailsBanner.scss";
 import CircularRating from "../../../components/circularRating/CircularRating";
@@ -59,7 +60,7 @@ const DetailsBanner = ({ video, crew }) => {
                         />
                       ) : (
                         <Image
-                          src="./images/no-poster.png"
+                          src={NoPoster}
                           className="poster-img"
                         />
                       )}

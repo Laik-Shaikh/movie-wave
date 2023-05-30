@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchDataFromApi, TMDB_API_KEY } from './api/api';
 import { getApiConfiguration, getGenres } from './slice/homeSlice';
 import Home from "./pages/home/Home";
-import Search from "./pages/search/Search";
+import SearchResult from "./pages/search/SearchResult";
 import Header from "./components/Header/Header";
 import Explore from "./pages/explore/Explore";
 import Footer from "./components/Footer/Footer";
@@ -55,8 +55,8 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path='/:mediaType/:id' element={<DetailsPage />} />
-        <Route exact path="/search/:query" element={<Search />} />
-        <Route exact path="/explore/movie" element={<Explore />} />
+        <Route exact path="/search/:query" element={<SearchResult />} />
+        <Route exact path="/explore/:mediaType" element={<Explore />} />
       </Routes>
       <Footer />
     </BrowserRouter>

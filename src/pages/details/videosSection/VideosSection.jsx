@@ -27,24 +27,32 @@ const VideosSection = ({ data, loading }) => {
         <div className="sectionHeading">Official Videos</div>
         {!loading ? (
           <div className="videos">
-            {data?.results?.map((video) => (
-              <div
-                key={video.id}
-                className="videoItem"
-                onClick={() => {
-                  setVideoId(video.key);
-                  setShow(true);
-                }}
-              >
-                <div className="videoThumbnail">
-                  <Image
-                    src={`https://img.youtube.com/vi/${video.key}/mqdefault.jpg`}
-                  />
-                  <PlayIcon />
-                </div>
-                <div className="videoTitle">{video.name}</div>
+            {data?.results?.length > 0 ? (
+              <>
+                {data?.results?.map((video) => (
+                  <div
+                    key={video.id}
+                    className="videoItem"
+                    onClick={() => {
+                      setVideoId(video.key);
+                      setShow(true);
+                    }}
+                  >
+                    <div className="videoThumbnail">
+                      <Image
+                        src={`https://img.youtube.com/vi/${video.key}/mqdefault.jpg`}
+                      />
+                      <PlayIcon />
+                    </div>
+                    <div className="videoTitle">{video.name}</div>
+                  </div>
+                ))}
+              </>
+            ) : (
+              <div className="no-result">
+                No Official Videos are Available
               </div>
-            ))}
+            )}
           </div>
         ) : (
           <div className="videoSkeleton">

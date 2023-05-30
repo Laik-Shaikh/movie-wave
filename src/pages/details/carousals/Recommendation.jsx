@@ -15,7 +15,7 @@ const Recommendation = ({ mediaType, id }) => {
       title="Recommendations"
       data={data?.results}
       loading={loading}
-      endpoint={mediaType}
+      endPoint={mediaType}
     />
   );
 };

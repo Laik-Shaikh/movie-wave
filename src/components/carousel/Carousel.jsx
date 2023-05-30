@@ -12,11 +12,13 @@ import Image from "../lazyImage/Image";
 import "./carousel.scss";
 import CircularRating from "../circularRating/CircularRating";
 import Genre from "../genres/Genre";
+import NoPoster from '../../assets/no-poster.png';
 
 const Carousel = ({ data, loading, endPoint, title }) => {
   const navigate = useNavigate();
   const { url } = useSelector((state) => state.home);
   const carouselContainer = useRef();
+  console.log("end: ", endPoint);
   const navigation = (direction) => {
     // this is same as we do in javascript by getElememtBYId or className etc.
 
@@ -63,7 +65,11 @@ const Carousel = ({ data, loading, endPoint, title }) => {
               {data?.map((item) => {
                 const posterURL = item.poster_path
                   ? url.poster + item.poster_path
-                  : "./images/no-poster.png";
+                  : NoPoster;
+                  // console.log(item.id === 28061 && item);
+                  if(item.id === 28061) {
+                    console.log(endPoint);
+                  }
                 return (
                   <div key={item.id} className="carousel-item" onClick={() => navigate(`/${item.media_type || endPoint}/${item.id}`)}>
                     <div className="poster-block">

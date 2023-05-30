@@ -122,4 +122,16 @@
             }
         }
     }
+
+    .no-result{
+        color: white;
+        font-size: 18px;
+        text-align: center;
+        opacity: 0.6;
+        font-weight: 500;
+
+        @include md {
+            font-size: 20px;
+        }
+    }
 }

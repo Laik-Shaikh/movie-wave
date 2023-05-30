@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import ContentWrapper from "../../../components/container/ContentWrapper";
 import Image from "../../../components/lazyImage/Image";
+import Avatar from '../../../assets/avatar.png'
 
 import './cast.scss';
 
@@ -26,7 +27,7 @@ const Cast = ({ data, loading }) => {
         {!loading ? (
           <div className="list-items">
             {data?.map((cast) => {
-              let profileImage = cast.profile_path ? url.profile + cast.profile_path : './images/avatar.png';
+              let profileImage = cast.profile_path ? url.profile + cast.profile_path : Avatar;
               return (
                 <div key={cast.id} className="list-item">
                   <div className="profile-image">
