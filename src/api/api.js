@@ -1,19 +1,18 @@
 import axios from "axios";
 
 const BASE_URL = "https://api.themoviedb.org/3"
-const TMDB_API_KEY = process.env.REACT_APP_API_KEY;
+export const TMDB_API_KEY = process.env.REACT_APP_API_KEY;
 
 const API = axios.create({
     baseURL: BASE_URL,
 });
 
 export const fetchDataFromApi = async (fetchURL, params) => {
+    console.log(params);
     try {
         const { data } = await API.get(fetchURL, {
             
-            params: {
-                api_key: process.env.REACT_APP_API_KEY
-            }
+            params: params
         });
         return data;
     } catch (error) {

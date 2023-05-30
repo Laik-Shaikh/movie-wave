@@ -7,6 +7,7 @@ import useFetch from "../../../hooks/useFetch";
 import Image from "../../../components/lazyImage/Image";
 
 import './heroBanner.scss';
+import { TMDB_API_KEY } from "../../../api/api";
 
 const HeroBanner = () => {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ const HeroBanner = () => {
 
   const { data, loading } = useFetch(
     "/movie/upcoming",
-    process.env.REACT_APP_API_KEY
+    {api_key : TMDB_API_KEY}
   );
 
   useEffect(() => {

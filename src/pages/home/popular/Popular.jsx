@@ -7,30 +7,30 @@ import SwitchTab from "../../../components/switchTab/SwitchTab";
 import useFetch from '../../../hooks/useFetch'
 import '../home.scss';
 
-const Trending = () => {
+const Popular = () => {
 
-  const [endPoint, setEndPoint] = useState('day');
+  const [endPoint, setEndPoint] = useState('movie');
 
 
   const onTabChange = (tab, index) => {
-    setEndPoint(`${tab === "Day" ? "day" : "week"}`);
+    setEndPoint(`${tab === "Movies" ? "movie" : "tv"}`);
   }
 
-  const { data, loading } = useFetch(`trending/all/${endPoint}`, {api_key : TMDB_API_KEY});
+  const { data, loading } = useFetch(`${endPoint}/popular`, {api_key : TMDB_API_KEY});
 
 
   return (
     <>
       <div className="carousel-section">
         <ContentWrapper>
-          <span className="carousel-title">Trending</span>
-          <SwitchTab data={["Day", "Week"]} onTabChange={onTabChange} />
+          <span className="carousel-title">What's Popular</span>
+          <SwitchTab data={["Movies", "TV Shows"]} onTabChange={onTabChange} />
         </ContentWrapper>
 
-        <Carousel data={data?.results} loading={loading} />
+        <Carousel endPoint={endPoint} data={data?.results} loading={loading} />
       </div>
     </>
   );
 }
 
-export default Trending;
+export default Popular;
