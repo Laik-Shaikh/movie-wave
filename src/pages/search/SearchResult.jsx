@@ -48,7 +48,7 @@ const SearchResult = () => {
         if (data?.results) {
           setData({
             ...data,
-            results: [...results, ...res.results],
+            results: [...data?.results, ...res.results],
           });
         } else {
           setData(res);
